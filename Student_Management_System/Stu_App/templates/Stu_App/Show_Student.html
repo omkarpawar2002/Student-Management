@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+
+{% block title %}
+<title>SHOW STUDENT</title>
+{% endblock %}
+
+{% block content %}
+<table>
+    <thead>
+        <tr>
+            <th>STUDENT ID</th>
+            <th>FIRST NAME</th>
+            <th>LAST NAME</th>
+            <th>MOBILE NO</th>
+            <th>GENDER</th>
+            <th>DOB</th>
+            <th>SUBJECT</th>
+            <th>MARKS</th>
+            <th>CITY</th>
+            <th>ADDRESS</th>
+            <th>EMAIL ID</th>
+            <th>PASSWORD</th>
+            <th>ELIGIBLE</th>
+            <th>ACTIONS</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for record in records %}
+        <tr>
+            <td>{{record.stu_id}}</td>
+            <td>{{record.first_name}}</td>
+            <td>{{record.last_name}}</td>
+            <td>{{record.mobile}}</td>
+            <td>{{record.gender}}</td>
+            <td>{{record.dob}}</td>
+            <td>{{record.subject}}</td>
+            <td>{{record.marks}}</td>
+            <td>{{record.city}}</td>
+            <td>{{record.address}}</td>
+            <td>{{record.email}}</td>
+            <td>{{record.password}}</td>
+            <td>{{record.eligible}}</td>
+            <td>
+                <a href="{% url 'Update_Student' record.stu_id %}"><button type="button">UPDATE</button></a>
+                <a href="{% url 'Delete_Student' record.stu_id %}"><button type="button">DELETE</button></a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
